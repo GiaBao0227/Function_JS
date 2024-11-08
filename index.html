@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quản Lý Tuyển Sinh</title>
+  </head>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      text-align: center;
+    }
+    label {
+      font-weight: bold;
+    }
+    input[type="text"],
+    input[type="number"] {
+      padding: 8px;
+      margin: 10px;
+      width: 25%;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .result {
+      margin-top: 20px;
+      font-size: 18px;
+      font-weight: bold;
+      color: green;
+    }
+    h2 {
+      color: #f7941e;
+    }
+  </style>
+  <body>
+    <!-- Bài 1: QLTS -->
+    <h2>Admission Management Program</h2>
+
+    <label>Điểm Chuẩn:</label>
+    <input
+      type="number"
+      id="benchmarkScore"
+      placeholder="Enter Benchmark Score"
+    /><br /><br />
+
+    <label>Điểm Môn Thứ 1:</label>
+    <input
+      type="number"
+      id="subjectScore1"
+      placeholder="Enter Subject Score 1"
+    /><br /><br />
+
+    <label>Điểm Môn Thứ 2:</label>
+    <input
+      type="number"
+      id="subjectScore2"
+      placeholder="Enter Subject Score 2"
+    /><br /><br />
+
+    <label>Điểm Môn Thứ 3:</label>
+    <input
+      type="number"
+      id="subjectScore3"
+      placeholder="Enter Subject Score 3"
+    /><br /><br />
+
+    <label>Khu Vực:</label>
+    <select id="area">
+      <option value="X">X</option>
+      <option value="A">Khu vực A</option>
+      <option value="B">Khu vực B</option>
+      <option value="C">Khu vực C</option>
+    </select>
+    <br /><br />
+
+    <label>Đối Tượng:</label>
+    <select id="category">
+      <option value="0">0</option>
+      <option value="1">Đối tượng 1</option>
+      <option value="2">Đối tượng 2</option>
+      <option value="3">Đối tượng 3</option>
+    </select>
+    <br /><br />
+
+    <button id="btnResult">Xem Kết Quả</button>
+
+    <p id="resultText" class="result"></p>
+
+    <hr />
+    <!-- Bài 2: Tính tiền điện-->
+    <h2>Electricity Bill Calculation Program</h2>
+
+    <label for="fullName">Họ tên:</label>
+    <input
+      type="text"
+      id="fullName"
+      placeholder="Enter full name"
+    /><br /><br />
+
+    <label for="kwUsed">Nhập số Kw:</label>
+    <input type="number" id="kwUsed" placeholder="Enter Kw" /><br /><br />
+
+    <button id="btnCalculateBill">Tính Tiền Điện</button>
+    <p id="resultText1" class="result"></p>
+
+    <hr />
+    <!-- Bài 3: Tính Thuế Thu nhập cá nhân   -->
+    <h2>Personal Income Tax Calculation</h2>
+
+    <label for="fullName1">Họ và Tên:</label>
+    <input
+      type="text"
+      id="fullName1"
+      placeholder="Enter your full name"
+    /><br /><br />
+
+    <label for="annualIncome">Tổng thu nhập năm (in VND):</label>
+    <input
+      type="number"
+      id="annualIncome"
+      placeholder="Enter your annual income"
+    /><br /><br />
+
+    <label for="dependents">Số người phụ thuộc:</label>
+    <input
+      type="number"
+      id="dependents"
+      placeholder="Enter the number of dependents"
+    /><br /><br />
+
+    <button id="btnCalculateTax">Tính tiền thuế</button>
+
+    <p id="resultText2" class="result"></p>
+
+    <hr />
+    <!-- Bài 4 -->
+    <h2>Tính toán hóa đơn khách hàng</h2>
+    <form id="billingForm">
+      <!-- Input Layer -->
+      <div class="form-group">
+        <label for="customerId">Mã khách hàng:</label>
+        <input
+          type="text"
+          id="customerId"
+          placeholder="Enter Customer ID"
+          required
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="customerType">Loại khách hàng:</label>
+        <select id="customerType" onchange="toggleConnectionInput()" required>
+          <option value="">Chọn loại khách hàng</option>
+          <option value="residential">Nhà dân</option>
+          <option value="business">Doanh nghiệp</option>
+        </select>
+      </div>
+
+      <div class="form-group" id="connectionsGroup" style="display: none">
+        <label for="connections">Số kết nối:</label>
+        <input
+          type="number"
+          id="connections"
+          min="0"
+          value="0"
+          
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="premiumChannels">Số kênh cao cấp:</label>
+        <input type="number" id="premiumChannels" min="0" placeholder="Enter Number of Premium Channels" required />
+      </div>
+
+      <button type="button" onclick="calculateBill()">Tính toán</button>
+    </form>
+
+    <!-- Output Layer -->
+    <div id="result" class="result"></div>
+
+    <script src="./QLSV.js"></script>
+    <script src="./SoKw.js"></script>
+    <script src="/Thue.js"></script>
+    <script src="./TienCap.js"></script>
+  </body>
+</html>
